@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="247dp"
+        android:layout_above="@+id/name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginLeft="91dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginRight="91dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/mahi" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="136dp"
+        android:text="Dr Mahiram Bishnoi"
+        android:textColor="#2B0D5E"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signInButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:textColor="#034B05"
+        android:layout_marginBottom="25sp"
+        android:textStyle="bold"
+        android:text="Take Appointment And Make Payment Via Mobile" />
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="250dp"
+        android:layout_height="38dp"
+        android:layout_above="@+id/regButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="slideUpDown"
+        android:text="Sign In" />
+
+    <Button
+        android:id="@+id/regButton"
+        android:layout_width="250dp"
+        android:layout_height="38dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="RegUp"
+        android:text="Register Here" />
+
+    <RelativeLayout
+        android:id="@+id/hidden_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="@drawable/login"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Here you can put your logo or brand name -->
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="247dp"
+                android:layout_above="@+id/name"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="91dp"
+                android:layout_marginLeft="91dp"
+                android:layout_marginTop="50sp"
+                android:layout_marginEnd="91dp"
+                android:layout_marginRight="91dp"
+                android:src="@drawable/mahi" />
+
+            <EditText
+                android:id="@+id/txtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:background="@android:color/transparent"
+                android:drawablePadding="12dp"
+                android:padding="8dp"
+                android:hint="Username"
+                android:textColorHint="#fff"
+                android:maxLines="1"
+                android:drawableLeft="@drawable/ic_person_white_24dp"
+                android:layout_marginTop="70dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db" />
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:drawablePadding="12dp"
+                android:padding="8dp"
+                android:hint="......."
+                android:textColorHint="#fff"
+                android:maxLines="1"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="4dp"
+                android:drawableLeft="@drawable/ic_lock_white_24dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="38sp"
+                android:background="@drawable/roundbutton"
+                android:text="Log in"
+                android:textAllCaps="false"
+                android:onClick="sign"
+                android:clickable="true"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_marginTop="24dp"
+                android:textSize="18sp"/>
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/hidden_Reg_Panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="100sp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="@drawable/login"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Here you can put your logo or brand name -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="#fff"
+                android:background="@android:color/transparent"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="Abhedya's Dermacare(skin,Hair,Laser And Cosmetic Surgery)"/>
+            <EditText
+                android:id="@+id/fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_person_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="FullName"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColorHint="#fff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db" />
+            <EditText
+                android:id="@+id/Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:drawablePadding="12dp"
+                android:padding="8dp"
+                android:hint="Password"
+                android:textColorHint="#fff"
+                android:maxLines="1"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="4dp"
+                android:drawableLeft="@drawable/ic_lock_white_24dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db" />
+            <EditText
+                android:id="@+id/MobNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:drawablePadding="12dp"
+                android:padding="8dp"
+                android:hint="Mobile Number"
+                android:textColorHint="#fff"
+                android:maxLines="1"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="4dp"
+                android:drawableLeft="@drawable/ic_lock_white_24dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db" />
+            <EditText
+                android:id="@+id/place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:drawablePadding="12dp"
+                android:padding="8dp"
+                android:hint="place"
+                android:textColorHint="#fff"
+                android:maxLines="1"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="4dp"
+                android:drawableLeft="@drawable/ic_lock_white_24dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db" />
+
+            <Button
+                android:id="@+id/btnReg"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="38sp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/roundbutton"
+                android:clickable="true"
+                android:onClick="sign"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
+
+            <ProgressBar
+                android:id="@+id/loading1"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

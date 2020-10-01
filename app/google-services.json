@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1044179578611",
+    "firebase_url": "https://doctorapp-4eb4d.firebaseio.com",
+    "project_id": "doctorapp-4eb4d",
+    "storage_bucket": "doctorapp-4eb4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044179578611:android:9837c24ddcb45b51121186",
+        "android_client_info": {
+          "package_name": "com.example.doctorappointment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044179578611-6m9e7kttfs2djivdsc119so1f25t7ion.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doctorappointment",
+            "certificate_hash": "f03eeef6ba93405b2e60bc4e6778c8a9ce82662f"
+          }
+        },
+        {
+          "client_id": "1044179578611-96vujiid15uogequckdq8ejdfetd66tm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrQkMPso0Xx4aCVzf5OLvHB_RePka8FyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044179578611-96vujiid15uogequckdq8ejdfetd66tm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
