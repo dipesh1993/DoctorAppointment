@@ -37,6 +37,7 @@ import java.util.Map;
 
 
 public class Booking extends Fragment {
+    
     MaterialCalendarView mcv;
     List<Book> bookList;
     RecyclerView recyclerView;
@@ -48,12 +49,12 @@ public class Booking extends Fragment {
     private static final String URL_PRODUCTS = "http://192.168.43.129/doctor/booking.php";
     private static final String URL_SCHEDULE = "http://192.168.43.129/doctor/scheduledata.php";
 
-
     @SuppressLint("WrongConstant")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        
         View view = inflater.inflate(R.layout.activity_booking, container, false);
         mcv = view.findViewById(R.id.calendarView);
         bookList = new ArrayList<>();
@@ -64,6 +65,7 @@ public class Booking extends Fragment {
         recyclerView = view.findViewById(R.id.recylcerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 4, GridLayout.VERTICAL, false));
+        
         mcv.state().edit()
                 .setMinimumDate(CalendarDay.today())
                 .setCalendarDisplayMode(CalendarMode.WEEKS)
@@ -81,7 +83,6 @@ public class Booking extends Fragment {
                 output = mDate.getDate().toString();
 //                date2.setText(output);
             }
-
         });
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -94,17 +95,21 @@ public class Booking extends Fragment {
                     Toast.makeText(getContext(), "please choose date", Toast.LENGTH_SHORT).show();
             }
         });
-
+        
         return view;
     }
 
     private void loadIntoListView() {
+        
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PRODUCTS,
                 new Response.Listener<String>() {
+                    
                     @Override
                     public void onResponse(String response) {
+                        
 //                        pDialog.dismiss();
                         bookList.clear();
+                        
                         try {
                             //converting the string to json array object
                             JSONArray array = new JSONArray(response);
@@ -131,6 +136,7 @@ public class Booking extends Fragment {
 
                             //creating adapter object and setting it to recyclerview
                                 BookingAdapter adapter = new BookingAdapter(getContext(), bookList, output);
+                            
                             if (adapter != null)
                             {
                                 if (adapter.getItemCount() > 0) {
@@ -139,8 +145,6 @@ public class Booking extends Fragment {
                                     message.setVisibility(View.VISIBLE);
                                 }
                             }
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -164,11 +168,4 @@ public class Booking extends Fragment {
         //adding our stringrequest to queue
         Volley.newRequestQueue(getActivity().getApplicationContext()).add(stringRequest);
     }
-
-
-
 }
-
-
-
-
